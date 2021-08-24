@@ -72,9 +72,11 @@ function  drawGame(){
 
     if(snakeX < box || snakeX > box * 17
         || snakeY < 3 * box || snakeY > box * 17){
-        score = "Game over";
         clearInterval(game);
-    };
+        if (confirm('GAME OVER! Начать игру заново?')) {
+            window.location.reload();
+        }
+    }
 
     if(dir === "left") snakeX -= box;
     if(dir === "right") snakeX += box;
